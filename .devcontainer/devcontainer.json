@@ -1,1 +1,34 @@
-
+{
+  "name": "Real-Estate Fullstack (frontend + admin + backend)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "bash .devcontainer/print-ports.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "dsznajder.es7-react-js-snippets",
+        "mikestead.dotenv",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "bradlc.vscode-tailwindcss",
+        "mongodb.mongodb-vscode"
+      ],
+      "settings": {
+        "editor.fontSize": 16,
+        "terminal.integrated.fontSize": 16,
+        "editor.wordWrap": "on",
+        "editor.tabSize": 2
+      }
+    }
+  },
+  "forwardPorts": [3000, 5173, 5174, 5000],
+  "portsAttributes": {
+    "3000": { "label": "Frontend (possible alternate)" },
+    "5173": { "label": "Frontend (Vite)" },
+    "5174": { "label": "Admin (Vite)" },
+    "5000": { "label": "Backend (API)" }
+  },
+  "remoteUser": "node"
+}

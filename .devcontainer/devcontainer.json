@@ -1,7 +1,7 @@
 {
   "name": "Real-Estate Fullstack (frontend + admin + backend)",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
-  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postCreateCommand": "bash .devcontainer/setup.sh && apt-get update && apt-get install -y zsh curl git tmux fzf exa fonts-powerline fd-find && sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && sed -i 's/^plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc && sed -i 's/^ZSH_THEME=.*$/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/' ~/.zshrc && echo \"# Tmux & Fzf shortcuts\" >> ~/.zshrc && echo \"alias t='tmux new -s dev || tmux attach -t dev'\" >> ~/.zshrc && echo \"export FZF_DEFAULT_COMMAND='fd --type f'\" >> ~/.zshrc",
   "postStartCommand": "bash .devcontainer/print-ports.sh",
   "customizations": {
     "vscode": {
@@ -19,7 +19,8 @@
         "editor.fontSize": 16,
         "terminal.integrated.fontSize": 16,
         "editor.wordWrap": "on",
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "terminal.integrated.defaultProfile.linux": "zsh"
       }
     }
   },
